@@ -3,185 +3,153 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Inventario - Bootstrap</title>
+  <title>Invitación de Boda</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body {
-      background-color: #0d1117;
-      color: #e6eef6;
-      font-family: 'Inter', sans-serif;
+      background-color: #fffaf2;
+      font-family: 'Cormorant Garamond', serif;
+      color: #3c3c3c;
     }
-    .sidebar {
-      background-color: #161b22;
-      min-height: 100vh;
-      padding: 20px;
+    .hero {
+      background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('https://images.unsplash.com/photo-1529634897961-93b3dfdd9d83?auto=format&fit=crop&w=900&q=60') center/cover;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #856404;
     }
-    .sidebar a {
-      color: #9aa6b2;
-      text-decoration: none;
-      display: block;
-      padding: 10px 12px;
-      border-radius: 8px;
-      margin-bottom: 6px;
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #a67c00;
     }
-    .sidebar a.active, .sidebar a:hover {
-      background-color: rgba(56,189,248,0.15);
-      color: #38bdf8;
+    .hero p {
+      font-size: 1.2rem;
+      color: #6c5e42;
     }
-    .card, .table, .form-control, .btn {
-      border-radius: 10px !important;
+    .section-title {
+      text-align: center;
+      color: #a67c00;
+      font-weight: bold;
+      margin-bottom: 1rem;
     }
-    .btn-primary {
-      background: linear-gradient(90deg, #38bdf8, #60a5fa);
+    .divider {
+      width: 80px;
+      height: 2px;
+      background-color: #d4af37;
+      margin: 0.5rem auto 2rem auto;
+    }
+    .card {
       border: none;
-      color: #042f3a;
+      background-color: #fffdf8;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    .btn-gold {
+      background-color: #d4af37;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      padding: 10px 25px;
       font-weight: 600;
     }
-    .btn-primary:hover {
-      background: linear-gradient(90deg, #60a5fa, #38bdf8);
+    .btn-gold:hover {
+      background-color: #b9972f;
     }
-    .table-dark th {
-      color: #9aa6b2;
+    footer {
+      background-color: #fdf6e3;
+      color: #6c5e42;
+      text-align: center;
+      padding: 1.5rem 0;
+      margin-top: 3rem;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
-  <div class="container-fluid">
-    <div class="row">
-      <nav class="col-md-3 col-lg-2 sidebar">
-        <div class="d-flex align-items-center mb-4">
-          <div class="bg-info text-dark fw-bold p-3 rounded me-2">INV</div>
-          <div>
-            <h6 class="mb-0">Sistema Inventario</h6>
-            <small class="text-muted">Versión HTML + Bootstrap</small>
-          </div>
-        </div>
-
-        <a href="#" class="active">Inventario</a>
-        <a href="#">Entradas</a>
-        <a href="#">Salidas</a>
-        <a href="#">Proveedores</a>
-        <a href="#">Ajustes</a>
-
-        <hr class="border-secondary mt-4">
-        <div class="text-muted small">
-          <p>Productos totales: <span class="text-info">128</span></p>
-          <p>Bajo stock: <span class="text-warning">12</span></p>
-          <p>Valor total: <span class="text-success">S/ 45,300</span></p>
-        </div>
-      </nav>
-
-      <main class="col-md-9 col-lg-10 p-4">
-        <div class="d-flex justify-content-between align-items-center mb-3">
-          <input type="text" class="form-control w-50" placeholder="Buscar producto, código o proveedor...">
-          <button class="btn btn-primary">Nuevo producto</button>
-        </div>
-
-        <div class="row g-3 mb-4">
-          <div class="col-md-4">
-            <div class="card bg-dark text-light p-3">
-              <h6>Total ítems</h6>
-              <p class="fs-5 mb-0">128</p>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card bg-dark text-light p-3">
-              <h6>Stock crítico</h6>
-              <p class="fs-5 mb-0">12</p>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card bg-dark text-light p-3">
-              <h6>Última entrada</h6>
-              <p class="fs-5 mb-0">14 oct 2025</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="table-responsive mb-4">
-          <table class="table table-dark table-striped align-middle">
-            <thead>
-              <tr>
-                <th>Producto</th>
-                <th>Código</th>
-                <th>Categoría</th>
-                <th>Stock</th>
-                <th>Precio unit.</th>
-                <th>Proveedor</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>Impresora Epson L395</strong><br><small>Impresora multifuncional</small></td>
-                <td>EP-L395</td>
-                <td>Periféricos</td>
-                <td>24</td>
-                <td>S/ 450</td>
-                <td>OfiStore</td>
-                <td><a href="#" class="text-info">Editar</a></td>
-              </tr>
-              <tr>
-                <td><strong>Memoria RAM 16GB</strong><br><small>DDR4 3200MHz</small></td>
-                <td>RAM-16-3200</td>
-                <td>Hardware</td>
-                <td>8</td>
-                <td>S/ 180</td>
-                <td>TechSupply</td>
-                <td><a href="#" class="text-info">Editar</a></td>
-              </tr>
-              <tr>
-                <td><strong>Cable HDMI 2m</strong><br><small>Alta velocidad</small></td>
-                <td>HDMI-2</td>
-                <td>Accesorios</td>
-                <td>120</td>
-                <td>S/ 25</td>
-                <td>CableMax</td>
-                <td><a href="#" class="text-info">Editar</a></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <form class="bg-dark p-4 rounded">
-          <div class="row g-3">
-            <div class="col-md-6">
-              <label class="form-label">Nombre del producto</label>
-              <input type="text" class="form-control" placeholder="Teclado mecánico">
-            </div>
-            <div class="col-md-6">
-              <label class="form-label">Código</label>
-              <input type="text" class="form-control" placeholder="KB-RED-01">
-            </div>
-            <div class="col-md-6">
-              <label class="form-label">Categoría</label>
-              <select class="form-select">
-                <option>Hardware</option>
-                <option>Periféricos</option>
-                <option>Accesorios</option>
-              </select>
-            </div>
-            <div class="col-md-6">
-              <label class="form-label">Cantidad</label>
-              <input type="number" class="form-control" placeholder="0">
-            </div>
-            <div class="col-md-6">
-              <label class="form-label">Precio unitario</label>
-              <input type="text" class="form-control" placeholder="S/ 0.00">
-            </div>
-            <div class="col-md-6">
-              <label class="form-label">Proveedor</label>
-              <input type="text" class="form-control" placeholder="Nombre del proveedor">
-            </div>
-          </div>
-          <div class="d-flex justify-content-end mt-4">
-            <button type="submit" class="btn btn-primary me-2">Guardar</button>
-            <button type="reset" class="btn btn-outline-secondary">Cancelar</button>
-          </div>
-        </form>
-      </main>
+  <section class="hero">
+    <div class="container">
+      <h1>Fernando y Ana</h1>
+      <p class="lead">¡Nos casamos!</p>
+      <p>Y queremos que seas parte de este día tan especial.</p>
+      <a href="#detalles" class="btn btn-gold mt-3">Ver detalles</a>
     </div>
-  </div>
+  </section>
+
+  <section id="detalles" class="container py-5">
+    <h2 class="section-title">Detalles de la boda</h2>
+    <div class="divider"></div>
+
+    <div class="row g-4 justify-content-center">
+      <div class="col-md-6 col-lg-4">
+        <div class="card text-center p-4">
+          <h5 class="text-gold fw-bold">Fecha</h5>
+          <p class="mb-0">Sábado, 20 de diciembre de 2025</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="card text-center p-4">
+          <h5 class="text-gold fw-bold">Lugar</h5>
+          <p class="mb-0">Hacienda El Sol, Lima - Perú</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="card text-center p-4">
+          <h5 class="text-gold fw-bold">Hora</h5>
+          <p class="mb-0">Ceremonia: 4:00 p.m.<br>Recepción: 6:00 p.m.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container py-5">
+    <h2 class="section-title">Confirma tu asistencia</h2>
+    <div class="divider"></div>
+    <form class="mx-auto" style="max-width: 500px;">
+      <div class="mb-3">
+        <label class="form-label">Nombre completo</label>
+        <input type="text" class="form-control" placeholder="Tu nombre" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">¿Asistirás?</label>
+        <select class="form-select">
+          <option value="si">Sí, allí estaré</option>
+          <option value="no">No podré asistir</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Mensaje para los novios</label>
+        <textarea class="form-control" rows="3" placeholder="Deja tu mensaje aquí..."></textarea>
+      </div>
+      <div class="text-center">
+        <button type="submit" class="btn btn-gold">Enviar</button>
+      </div>
+    </form>
+  </section>
+
+  <section class="container py-5">
+    <h2 class="section-title">Galería</h2>
+    <div class="divider"></div>
+    <div class="row g-3">
+      <div class="col-6 col-md-4">
+        <img src="https://images.unsplash.com/photo-1530026186672-707b4fd7ee91?auto=format&fit=crop&w=600&q=60" class="img-fluid rounded shadow-sm" alt="boda1">
+      </div>
+      <div class="col-6 col-md-4">
+        <img src="https://images.unsplash.com/photo-1504198266285-165a7bfa1c3b?auto=format&fit=crop&w=600&q=60" class="img-fluid rounded shadow-sm" alt="boda2">
+      </div>
+      <div class="col-6 col-md-4">
+        <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=600&q=60" class="img-fluid rounded shadow-sm" alt="boda3">
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Con todo nuestro amor,</p>
+    <p><strong>Laura & Andrés</strong></p>
+    <small>© 2025 Nuestra Boda — Todos los derechos reservados</small>
+  </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
