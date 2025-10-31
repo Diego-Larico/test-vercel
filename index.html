@@ -77,6 +77,21 @@
       height: 300px;
       border-radius: 10px;
     }
+    footer {
+      background-color: #fdf6e3;
+      color: #6c5e42;
+      text-align: center;
+      padding: 1.5rem 0;
+      margin-top: 3rem;
+      font-size: 0.9rem;
+    }
+    #mensaje-exito {
+      color: #198754;
+      font-weight: 600;
+      text-align: center;
+      margin-top: 1rem;
+      display: none;
+    }
   </style>
 </head>
 <body>
@@ -86,7 +101,7 @@
       <h1>Fernando y Ana</h1>
       <p class="lead">¡Nos casamos!</p>
       <p>Y queremos que seas parte de este día tan especial.</p>
-      <a href="#ubicacion" class="btn btn-gold mt-3">Ver ubicación</a>
+      <a href="#ubicacion" class="btn btn-gold mt-3">Ver Detalles</a>
     </div>
   </section>
 
@@ -101,15 +116,6 @@
           <h5 class="text-gold fw-bold">Lugar</h5>
           <p class="mb-3">Salón de Recepciones “Mamá Tere”, Chincha Alta - Perú</p>
           <a href="https://maps.app.goo.gl/XDF4iUmQBugommby9" target="_blank" class="btn btn-gold mb-3">Ver Ubicación</a>
-
-          <div class="map-container">
-            <iframe
-              src="https://www.google.com/maps?q=-13.397834228930618,-76.14889280425334&z=17&output=embed"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-          </div>
         </div>
       </div>
     </div>
@@ -138,26 +144,9 @@
       <div class="text-center">
         <button type="submit" class="btn btn-gold">Enviar</button>
       </div>
+      <p id="mensaje-exito">💌 ¡Gracias! Tu respuesta ha sido enviada correctamente.</p>
     </form>
   </section>
-
-  <!-- Modal de éxito -->
-  <div class="modal fade" id="modal-exito" tabindex="-1" aria-labelledby="modalExitoLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header border-0">
-          <h5 class="modal-title" id="modalExitoLabel">💌 Confirmación enviada</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-        </div>
-        <div class="modal-body text-center">
-          ¡Gracias por confirmar tu asistencia! Nos alegra mucho contar contigo en este día tan especial.
-        </div>
-        <div class="modal-footer border-0 justify-content-center">
-          <button type="button" class="btn btn-gold" data-bs-dismiss="modal">Cerrar</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- Pie -->
   <footer>
@@ -167,10 +156,7 @@
   </footer>
 
   <script>
-    const form = document.getElementById('rsvp-form');
-    const modalExito = new bootstrap.Modal(document.getElementById('modal-exito'));
-
-    form.addEventListener('submit', function(e) {
+    document.getElementById('rsvp-form').addEventListener('submit', function(e) {
       e.preventDefault();
 
       const formData = new FormData(this);
@@ -181,8 +167,8 @@
         mode: 'no-cors',
         body: formData
       }).then(() => {
-        modalExito.show(); // ✅ Mostrar modal solo al enviar
-        form.reset();
+        document.getElementById('mensaje-exito').style.display = 'block';
+        this.reset();
       }).catch(() => {
         alert('Hubo un error al enviar tu respuesta.');
       });
