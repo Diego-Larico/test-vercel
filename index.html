@@ -77,14 +77,6 @@
       height: 300px;
       border-radius: 10px;
     }
-    footer {
-      background-color: #fdf6e3;
-      color: #6c5e42;
-      text-align: center;
-      padding: 1.5rem 0;
-      margin-top: 3rem;
-      font-size: 0.9rem;
-    }
   </style>
 </head>
 <body>
@@ -118,7 +110,6 @@
               referrerpolicy="no-referrer-when-downgrade">
             </iframe>
           </div>
-
         </div>
       </div>
     </div>
@@ -128,23 +119,45 @@
   <section class="container py-5">
     <h2 class="section-title">Confirma tu asistencia</h2>
     <div class="divider"></div>
-    <form class="mx-auto" style="max-width: 500px;">
+
+    <form id="rsvp-form" class="mx-auto" style="max-width: 500px;">
       <div class="mb-3">
         <label class="form-label">Nombre completo</label>
-        <input type="text" class="form-control" placeholder="Tu nombre" required>
+        <input type="text" class="form-control" name="entry.607248317" placeholder="Tu nombre" required>
       </div>
+
       <div class="mb-3">
         <label class="form-label">¿Asistirás?</label>
-        <select class="form-select">
-          <option value="si">Sí, allí estaré</option>
-          <option value="no">No podré asistir</option>
+        <select class="form-select" name="entry.967733449" required>
+          <option value="" disabled selected>Selecciona una opción</option>
+          <option value="Asistire">Asistiré</option>
+          <option value="No Asistire">No asistiré</option>
         </select>
       </div>
+
       <div class="text-center">
         <button type="submit" class="btn btn-gold">Enviar</button>
       </div>
     </form>
   </section>
+
+  <!-- Modal de éxito -->
+  <div class="modal fade" id="modal-exito" tabindex="-1" aria-labelledby="modalExitoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <h5 class="modal-title" id="modalExitoLabel">💌 Confirmación enviada</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body text-center">
+          ¡Gracias por confirmar tu asistencia! Nos alegra mucho contar contigo en este día tan especial.
+        </div>
+        <div class="modal-footer border-0 justify-content-center">
+          <button type="button" class="btn btn-gold" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Pie -->
   <footer>
@@ -152,6 +165,29 @@
     <p><strong>Fernando & Ana</strong></p>
     <small>© 2025 Nuestra Boda — Todos los derechos reservados</small>
   </footer>
+
+  <script>
+    const form = document.getElementById('rsvp-form');
+    const modalExito = new bootstrap.Modal(document.getElementById('modal-exito'));
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const formData = new FormData(this);
+      const actionUrl = 'https://docs.google.com/forms/d/e/1FAIpQLScLgAoJZ0eGKA0jvJd4H24RzRyVaUMsghl2acdIk7w2hwgT-Q/formResponse';
+
+      fetch(actionUrl, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: formData
+      }).then(() => {
+        modalExito.show(); // ✅ Mostrar modal solo al enviar
+        form.reset();
+      }).catch(() => {
+        alert('Hubo un error al enviar tu respuesta.');
+      });
+    });
+  </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
