@@ -32,7 +32,7 @@
     /* Portada */
     .hero {
       background-color: #ffffff;
-      height: 100vh;
+      min-height: 100vh; /* asegura altura total de pantalla */
       display: flex;
       align-items: center;
       justify-content: center;
@@ -40,6 +40,7 @@
       color: var(--texto);
       padding: 2rem;
     }
+
     .hero h1 {
       font-size: 3.6rem;
       font-family: 'Great Vibes', cursive;
@@ -122,6 +123,7 @@
       font-size: 1rem;
       line-height: 1.2;
       margin-top: auto; /* empuja el footer al final */
+      border-top: 2px solid var(--acento-oscuro);
     }
 
     #mensaje-exito {
@@ -168,8 +170,9 @@
         <div class="col-md-8 col-lg-6">
           <div class="card text-center p-4">
             <h5 class="fw-bold" style="color:var(--acento); font-family:'Great Vibes', cursive; font-size:1.8rem;">Lugar</h5>
-            <p class="mb-3" style="font-size:1.2rem;">Salón de Recepciones “Mamá Tere”, Chincha Alta</p>
+                <p class="mb-3" style="font-size:1.2rem;">Salón de Recepciones "MAMA TERE”, Chincha</p>
             <a href="https://maps.app.goo.gl/XDF4iUmQBugommby9" target="_blank" class="btn btn-gold mb-3">Ver Ubicación</a>
+
           </div>
         </div>
       </div>
